@@ -32,7 +32,7 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur">
       <Marquee />
 
-      <div className="grid grid-cols-[1fr_auto_1fr] items-center px-4 py-5 md:px-10">
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center px-4 py-2 md:px-10">
         <button
           className="justify-self-start md:hidden"
           aria-label="Open menu"
@@ -42,13 +42,13 @@ export function Header() {
         </button>
         <span className="hidden md:block" />
 
-        <Link to="/" className="flex flex-col items-center leading-none justify-self-center">
-          <span className="font-display text-2xl tracking-[0.3em] uppercase md:text-3xl">
-            VedAarna
-          </span>
-          <span className="mt-1 text-[9px] tracking-[0.42em] text-muted-foreground uppercase">
-            Studio
-          </span>
+        <Link to="/" className="flex items-center justify-self-center" aria-label="VedAarna Studio">
+          <img
+            src="/logo.svg"
+            alt="VedAarna Studio"
+            className="h-16 w-auto md:h-20"
+            draggable={false}
+          />
         </Link>
 
         <div className="flex items-center gap-5 justify-self-end">

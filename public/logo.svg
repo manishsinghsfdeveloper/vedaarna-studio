@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520">
+  <rect width="400" height="520" fill="#F5EDE8"/>
+
+  <!-- ====== VA monogram ====== -->
+  <!-- V left stroke -->
+  <polygon points="30,130 80,130 200,340 320,130 370,130 200,390" fill="#8B3042"/>
+
+  <!-- A crossbar (white cutout on V creates the A shape) -->
+  <!-- We draw the A as a separate overlay with the crossbar -->
+  <!-- Left A leg already part of V right stroke, right A leg is V left stroke -->
+  <!-- Crossbar for the A letter -->
+  <rect x="148" y="270" width="104" height="14" fill="#F5EDE8"/>
+
+  <!-- ====== Mannequin / dress form on top of VA ====== -->
+  <!-- Neck -->
+  <rect x="188" y="52" width="24" height="28" rx="6" fill="#8B3042"/>
+
+  <!-- Head / neckline ellipse -->
+  <ellipse cx="200" cy="50" rx="18" ry="12" fill="#8B3042"/>
+
+  <!-- Torso body -->
+  <path d="
+    M162,80
+    C155,85 148,95 148,110
+    C148,130 155,148 162,158
+    C170,168 184,174 200,174
+    C216,174 230,168 238,158
+    C245,148 252,130 252,110
+    C252,95 245,85 238,80
+    C232,76 218,72 210,72
+    L210,52 L190,52 L190,72
+    C182,72 168,76 162,80 Z
+  " fill="#8B3042"/>
+
+  <!-- Draped sash / fabric wave across torso (the diagonal curve in the logo) -->
+  <path d="
+    M152,100 Q185,118 200,108 Q215,98 248,115
+    L248,125 Q215,108 200,118 Q185,128 152,110 Z
+  " fill="#F5EDE8" opacity="0.55"/>
+
+  <!-- Shoulder curves -->
+  <path d="M162,80 Q148,75 140,82 Q136,90 140,98 Q148,95 155,88 Z" fill="#8B3042"/>
+  <path d="M238,80 Q252,75 260,82 Q264,90 260,98 Q252,95 245,88 Z" fill="#8B3042"/>
+
+  <!-- Waist taper -->
+  <path d="M148,148 Q155,162 162,168 L162,180 Q150,175 145,162 Z" fill="#8B3042"/>
+  <path d="M252,148 Q245,162 238,168 L238,180 Q250,175 255,162 Z" fill="#8B3042"/>
+
+  <!-- Hips flare -->
+  <path d="
+    M162,168
+    C155,172 145,178 140,190
+    L140,210 L260,210 L260,190
+    C255,178 245,172 238,168
+    Q220,178 200,178 Q180,178 162,168 Z
+  " fill="#8B3042"/>
+
+  <!-- ====== VEDAARNA text ====== -->
+  <text
+    x="200"
+    y="448"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="52"
+    font-weight="bold"
+    letter-spacing="10"
+    text-anchor="middle"
+    fill="#8B3042"
+  >VEDAARNA</text>
+
+  <!-- ====== STUDIO subtext ====== -->
+  <text
+    x="200"
+    y="490"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="22"
+    font-weight="normal"
+    letter-spacing="14"
+    text-anchor="middle"
+    fill="#8B3042"
+  >STUDIO</text>
+</svg>
