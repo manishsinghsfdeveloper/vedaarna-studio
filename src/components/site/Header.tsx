@@ -44,9 +44,9 @@ export function Header() {
 
         <Link to="/" className="flex items-center justify-self-center" aria-label="VedAarna Studio">
           <img
-            src="/logo.svg"
+            src="/logo.png"
             alt="VedAarna Studio"
-            className="h-16 w-auto md:h-20"
+            className="h-16 w-auto md:h-30"
             draggable={false}
           />
         </Link>
