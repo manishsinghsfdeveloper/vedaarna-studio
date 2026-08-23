@@ -52,7 +52,7 @@ export function HeroCarousel() {
               alt={s.title}
               width={1920}
               height={1088}
-              className="h-[60vh] w-full object-cover md:h-[78vh]"
+              className="h-[60vh] w-full object-cover object-top md:h-[78vh]"
             />
             <div
               className={`absolute inset-0 flex items-center px-8 md:px-20 ${
