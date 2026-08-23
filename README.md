@@ -1,29 +1,55 @@
-# Welcome to your Lovable project
+# VedAarna Studio
 
-This project was built with [Lovable](https://lovable.dev).
+A replica of [Bunai](https://www.bunai.com/) — handcrafted Indian fashion store built with TanStack Start, React, TypeScript, and Tailwind CSS.
 
-## Build with Lovable
+## 🚀 Live Site
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Deployed on **Cloudflare Pages** via GitHub Actions on every push to `main`.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## 💻 Run Locally
 
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+You need **Node.js ≥ 18** or **Bun**.
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+# Clone the repo
+git clone https://github.com/manishsinghsfdeveloper/vedaarna-studio.git
+cd vedaarna-studio
+
+# Install dependencies (pick one)
+bun install       # recommended — uses bun.lock
+npm install       # alternative
+
+# Start dev server
+bun run dev
 npm run dev
 ```
 
-## Built with
+Open **http://localhost:5173**
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+## 📦 Build
+
+```sh
+bun run build
+# Output goes to .output/
+```
+
+## ☁️ Deploy to Cloudflare Pages (one-time setup)
+
+1. **Create a Cloudflare account** → https://dash.cloudflare.com/sign-up
+2. **Create a Pages project** named `vedaarna-studio`  
+   → Cloudflare Dashboard → Workers & Pages → Create → Pages → Connect to Git
+3. **Get your API token** → Cloudflare Dashboard → My Profile → API Tokens → Create Token → use "Edit Cloudflare Workers" template
+4. **Get your Account ID** → Cloudflare Dashboard → right sidebar on any page
+5. **Add GitHub Secrets** → GitHub repo → Settings → Secrets and variables → Actions → New secret:
+   - `CLOUDFLARE_API_TOKEN` — your API token from step 3
+   - `CLOUDFLARE_ACCOUNT_ID` — your account ID from step 4
+6. Push any commit to `main` — GitHub Actions will auto-deploy ✅
+
+## 🏗️ Built With
+
+- [TanStack Start](https://tanstack.com/start) — SSR React framework
+- [TypeScript](https://www.typescriptlang.org/)
+- [React 19](https://react.dev/)
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [Radix UI](https://www.radix-ui.com/) — accessible components
+- [Cloudflare Pages](https://pages.cloudflare.com/) — hosting
