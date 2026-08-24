@@ -40,36 +40,40 @@ export function HeroCarousel() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative w-full overflow-hidden">
       {slides.map((s, idx) => (
         <div
           key={s.title}
           className={`transition-opacity duration-700 ${idx === i ? "opacity-100" : "pointer-events-none absolute inset-0 opacity-0"}`}
         >
-          <div className="relative">
+          <div className="relative w-full">
             <img
               src={s.image}
               alt={s.title}
               width={1920}
               height={1088}
-              className="h-[60vh] w-full object-cover object-top md:h-[78vh]"
+              className="h-[70vw] min-h-[320px] w-full object-cover object-top md:h-[78vh] md:min-h-0"
             />
+            {/* Gradient overlay so text is always readable on mobile */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent md:bg-none" />
             <div
-              className={`absolute inset-0 flex items-center px-8 md:px-20 ${
-                s.align === "right" ? "justify-end text-right" : "justify-start text-left"
-              }`}
+              className={`absolute inset-0 flex items-end pb-10 px-5 md:items-center md:pb-0 md:px-20 ${
+                s.align === "right"
+                  ? "md:justify-end md:text-right"
+                  : "md:justify-start md:text-left"
+              } justify-center text-center`}
             >
-              <div className="max-w-md">
-                <p className="text-xs tracking-[0.22em] text-foreground/80 uppercase md:text-sm">
+              <div className="max-w-xs md:max-w-md">
+                <p className="text-[10px] tracking-[0.2em] text-white/90 uppercase md:text-xs md:text-foreground/80 md:tracking-[0.22em]">
                   {s.eyebrow}
                 </p>
-                <h2 className="mt-3 font-display text-3xl leading-tight tracking-[0.06em] uppercase md:text-5xl">
+                <h2 className="mt-2 font-display text-2xl leading-tight tracking-[0.06em] text-white uppercase md:mt-3 md:text-5xl md:text-foreground">
                   {s.title}
                 </h2>
                 <Link
                   to="/collections/$slug"
                   params={{ slug: s.slug }}
-                  className="mt-6 inline-block border-b border-foreground pb-1 text-xs tracking-[0.22em] uppercase"
+                  className="mt-4 inline-block border-b border-white pb-0.5 text-[11px] tracking-[0.2em] text-white uppercase md:mt-6 md:border-foreground md:text-foreground md:text-xs md:tracking-[0.22em]"
                 >
                   {s.cta}
                 </Link>
@@ -79,13 +83,14 @@ export function HeroCarousel() {
         </div>
       ))}
 
-      <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 gap-2.5">
+      {/* Dots */}
+      <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2.5 md:bottom-5">
         {slides.map((s, idx) => (
           <button
             key={s.title}
             aria-label={`Go to slide ${idx + 1}`}
             onClick={() => setI(idx)}
-            className={`size-2 rounded-full transition-colors ${idx === i ? "bg-foreground" : "bg-foreground/35"}`}
+            className={`size-2 rounded-full transition-colors ${idx === i ? "bg-white md:bg-foreground" : "bg-white/50 md:bg-foreground/35"}`}
           />
         ))}
       </div>

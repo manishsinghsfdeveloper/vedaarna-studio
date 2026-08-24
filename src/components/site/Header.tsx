@@ -1,7 +1,35 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, Search, ShoppingBag, User, X } from "lucide-react";
+import { Menu, Minus, Plus, Search, ShoppingBag, User, X } from "lucide-react";
 import { useState } from "react";
 import { navLinks } from "@/lib/shop-data";
+
+// Mobile nav: top-level sections with optional sub-items (expand/collapse)
+const mobileNav = [
+  { label: "NEW ARRIVALS", slug: "new-arrivals", children: [] },
+  {
+    label: "INDIAN WEAR",
+    slug: null,
+    children: [
+      { label: "Kurta & Suit Sets", slug: "kurta-suit-sets" },
+      { label: "Sarees", slug: "sarees" },
+    ],
+  },
+  {
+    label: "WESTERN WEAR",
+    slug: null,
+    children: [
+      { label: "Dresses", slug: "dresses" },
+      { label: "Co-Ord Sets", slug: "co-ords" },
+    ],
+  },
+  {
+    label: "MENSWEAR",
+    slug: "menswear",
+    children: [],
+  },
+  { label: "SALE", slug: "sale", children: [] },
+  { label: "OUR STORY", slug: null, to: "/about" as const, children: [] },
+] as const;
 
 function Marquee() {
   const items = Array.from({ length: 12 }, (_, i) => i);
@@ -27,6 +55,15 @@ function Marquee() {
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState<string | null>(null);
+
+  const toggleSection = (label: string) =>
+    setExpanded((v) => (v === label ? null : label));
+
+  const closeAll = () => {
+    setOpen(false);
+    setExpanded(null);
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur">
@@ -46,7 +83,7 @@ export function Header() {
           <img
             src="/logo.png"
             alt="VedAarna Studio"
-            className="h-16 w-auto md:h-30"
+            className="h-16 w-auto md:h-20"
             draggable={false}
           />
         </Link>
@@ -67,6 +104,7 @@ export function Header() {
         </div>
       </div>
 
+      {/* Desktop nav */}
       <nav className="hidden border-t border-border md:block">
         <ul className="flex items-center justify-center gap-9 py-3.5">
           {navLinks.map((l) => (
@@ -84,26 +122,99 @@ export function Header() {
         </ul>
       </nav>
 
+      {/* Mobile nav drawer */}
       {open && (
-        <nav className="border-t border-border md:hidden">
-          <ul className="flex flex-col px-6 py-2">
-            {navLinks.map((l) => (
-              <li key={l.slug} className="border-b border-border/60 last:border-0">
-                <Link
-                  to="/collections/$slug"
-                  params={{ slug: l.slug }}
-                  onClick={() => setOpen(false)}
-                  className="block py-3 text-xs tracking-[0.13em] uppercase"
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-            <li className="pt-3 pb-2">
-              <Link to="/about" onClick={() => setOpen(false)} className="text-xs tracking-[0.13em] uppercase">
-                Our Story
-              </Link>
-            </li>
+        <nav className="fixed inset-0 top-0 z-40 flex flex-col bg-background md:hidden">
+          {/* Drawer header row */}
+          <div className="grid grid-cols-[1fr_auto_1fr] items-center px-4 py-2">
+            <button
+              className="justify-self-start"
+              aria-label="Close menu"
+              onClick={closeAll}
+            >
+              <X className="size-5" />
+            </button>
+            <Link to="/" className="flex items-center justify-self-center" onClick={closeAll} aria-label="VedAarna Studio">
+              <img src="/logo.png" alt="VedAarna Studio" className="h-16 w-auto" draggable={false} />
+            </Link>
+            <button aria-label="Cart" className="relative justify-self-end">
+              <ShoppingBag className="size-5" />
+              <span className="absolute -top-2 -right-2 grid size-4 place-items-center rounded-full bg-primary text-[9px] text-primary-foreground">
+                0
+              </span>
+            </button>
+          </div>
+
+          {/* Scrollable menu items */}
+          <ul className="flex-1 overflow-y-auto border-t border-border">
+            {mobileNav.map((item) => {
+              const hasChildren = item.children.length > 0;
+              const isExpanded = expanded === item.label;
+
+              return (
+                <li key={item.label} className="border-b border-border/60">
+                  {/* Row: label + expand icon if has children */}
+                  <div className="flex items-center justify-between px-6 py-4">
+                    {hasChildren ? (
+                      // Section header — tapping toggles expand
+                      <button
+                        className="flex-1 text-left text-xs font-medium tracking-[0.13em] uppercase"
+                        onClick={() => toggleSection(item.label)}
+                      >
+                        {item.label}
+                      </button>
+                    ) : "to" in item && item.to ? (
+                      // Static link (Our Story)
+                      <Link
+                        to={item.to}
+                        onClick={closeAll}
+                        className="flex-1 text-xs font-medium tracking-[0.13em] uppercase"
+                      >
+                        {item.label}
+                      </Link>
+                    ) : (
+                      // Direct collection link
+                      <Link
+                        to="/collections/$slug"
+                        params={{ slug: item.slug! }}
+                        onClick={closeAll}
+                        className="flex-1 text-xs font-medium tracking-[0.13em] uppercase"
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+
+                    {hasChildren && (
+                      <button
+                        aria-label={isExpanded ? "Collapse" : "Expand"}
+                        onClick={() => toggleSection(item.label)}
+                        className="ml-4 text-foreground/60"
+                      >
+                        {isExpanded ? <Minus className="size-4" /> : <Plus className="size-4" />}
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Sub-items */}
+                  {hasChildren && isExpanded && (
+                    <ul className="border-t border-border/40 bg-secondary/30 pb-2">
+                      {item.children.map((child) => (
+                        <li key={child.slug} className="border-b border-border/30 last:border-0">
+                          <Link
+                            to="/collections/$slug"
+                            params={{ slug: child.slug }}
+                            onClick={closeAll}
+                            className="block px-10 py-3 text-xs tracking-[0.1em] text-muted-foreground uppercase"
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </nav>
       )}
