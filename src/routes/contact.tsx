@@ -38,17 +38,31 @@ function Contact() {
           <div className="space-y-6 text-sm">
             <div>
               <h2 className="text-xs tracking-[0.18em] uppercase">Write to us</h2>
-              <p className="mt-2 text-muted-foreground">care@vedaarnastudio.com</p>
+              <p className="mt-2 text-muted-foreground">
+                <a href="mailto:care@vedaarnastudio.com" className="link-underline">
+                  care@vedaarnastudio.com
+                </a>
+              </p>
+              <p className="mt-1 text-muted-foreground">
+                <a href="mailto:vedaarnastudio@gmail.com" className="link-underline">
+                  vedaarnastudio@gmail.com
+                </a>
+              </p>
             </div>
             <div>
               <h2 className="text-xs tracking-[0.18em] uppercase">Call or WhatsApp</h2>
-              <p className="mt-2 text-muted-foreground">+91 98200 00000</p>
+              <p className="mt-2 text-muted-foreground">
+                <a href="tel:+919910201612" className="link-underline">+91 99102 01612</a>
+                {", "}
+                <a href="tel:+919818081910" className="link-underline">+91 98180 81910</a>
+              </p>
               <p className="text-muted-foreground">Mon–Sat, 10am – 6pm IST</p>
             </div>
             <div>
               <h2 className="text-xs tracking-[0.18em] uppercase">Studio</h2>
               <p className="mt-2 text-muted-foreground">
-                14 Chandni Lane, Jaipur, Rajasthan 302001, India
+                525, Lower Ground Floor, Sector 27,<br />
+                Gurugram, Haryana 122009, India
               </p>
             </div>
           </div>
