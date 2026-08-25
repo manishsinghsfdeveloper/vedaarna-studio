@@ -11,7 +11,22 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AccountRouteImport } from './routes/account'
+import { Route as BecomeAStockistRouteImport } from './routes/become-a-stockist'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as CelebritiesRouteImport } from './routes/celebrities'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DeliveryInformationRouteImport } from './routes/delivery-information'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as FranchiseEnquiryRouteImport } from './routes/franchise-enquiry'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as ReferEarnRouteImport } from './routes/refer-earn'
+import { Route as ReturnsExchangesRouteImport } from './routes/returns-exchanges'
+import { Route as SitemapRouteImport } from './routes/sitemap'
+import { Route as TermsOfUseRouteImport } from './routes/terms-of-use'
+import { Route as TrackOrderRouteImport } from './routes/track-order'
+import { Route as WholesaleEnquiryRouteImport } from './routes/wholesale-enquiry'
+import { Route as WomenOfVedaarnaRouteImport } from './routes/women-of-vedaarna'
 import { Route as CollectionsSlugRouteImport } from './routes/collections.$slug'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
 
@@ -25,9 +40,84 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BecomeAStockistRoute = BecomeAStockistRouteImport.update({
+  id: '/become-a-stockist',
+  path: '/become-a-stockist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CelebritiesRoute = CelebritiesRouteImport.update({
+  id: '/celebrities',
+  path: '/celebrities',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DeliveryInformationRoute = DeliveryInformationRouteImport.update({
+  id: '/delivery-information',
+  path: '/delivery-information',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FranchiseEnquiryRoute = FranchiseEnquiryRouteImport.update({
+  id: '/franchise-enquiry',
+  path: '/franchise-enquiry',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferEarnRoute = ReferEarnRouteImport.update({
+  id: '/refer-earn',
+  path: '/refer-earn',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReturnsExchangesRoute = ReturnsExchangesRouteImport.update({
+  id: '/returns-exchanges',
+  path: '/returns-exchanges',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapRoute = SitemapRouteImport.update({
+  id: '/sitemap',
+  path: '/sitemap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsOfUseRoute = TermsOfUseRouteImport.update({
+  id: '/terms-of-use',
+  path: '/terms-of-use',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackOrderRoute = TrackOrderRouteImport.update({
+  id: '/track-order',
+  path: '/track-order',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WholesaleEnquiryRoute = WholesaleEnquiryRouteImport.update({
+  id: '/wholesale-enquiry',
+  path: '/wholesale-enquiry',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WomenOfVedaarnaRoute = WomenOfVedaarnaRouteImport.update({
+  id: '/women-of-vedaarna',
+  path: '/women-of-vedaarna',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CollectionsSlugRoute = CollectionsSlugRouteImport.update({
@@ -44,14 +134,44 @@ const ProductsSlugRoute = ProductsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
+  '/become-a-stockist': typeof BecomeAStockistRoute
+  '/blog': typeof BlogRoute
+  '/celebrities': typeof CelebritiesRoute
   '/contact': typeof ContactRoute
+  '/delivery-information': typeof DeliveryInformationRoute
+  '/faq': typeof FaqRoute
+  '/franchise-enquiry': typeof FranchiseEnquiryRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refer-earn': typeof ReferEarnRoute
+  '/returns-exchanges': typeof ReturnsExchangesRoute
+  '/sitemap': typeof SitemapRoute
+  '/terms-of-use': typeof TermsOfUseRoute
+  '/track-order': typeof TrackOrderRoute
+  '/wholesale-enquiry': typeof WholesaleEnquiryRoute
+  '/women-of-vedaarna': typeof WomenOfVedaarnaRoute
   '/collections/$slug': typeof CollectionsSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
+  '/become-a-stockist': typeof BecomeAStockistRoute
+  '/blog': typeof BlogRoute
+  '/celebrities': typeof CelebritiesRoute
   '/contact': typeof ContactRoute
+  '/delivery-information': typeof DeliveryInformationRoute
+  '/faq': typeof FaqRoute
+  '/franchise-enquiry': typeof FranchiseEnquiryRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refer-earn': typeof ReferEarnRoute
+  '/returns-exchanges': typeof ReturnsExchangesRoute
+  '/sitemap': typeof SitemapRoute
+  '/terms-of-use': typeof TermsOfUseRoute
+  '/track-order': typeof TrackOrderRoute
+  '/wholesale-enquiry': typeof WholesaleEnquiryRoute
+  '/women-of-vedaarna': typeof WomenOfVedaarnaRoute
   '/collections/$slug': typeof CollectionsSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
 }
@@ -59,21 +179,90 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
+  '/become-a-stockist': typeof BecomeAStockistRoute
+  '/blog': typeof BlogRoute
+  '/celebrities': typeof CelebritiesRoute
   '/contact': typeof ContactRoute
+  '/delivery-information': typeof DeliveryInformationRoute
+  '/faq': typeof FaqRoute
+  '/franchise-enquiry': typeof FranchiseEnquiryRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refer-earn': typeof ReferEarnRoute
+  '/returns-exchanges': typeof ReturnsExchangesRoute
+  '/sitemap': typeof SitemapRoute
+  '/terms-of-use': typeof TermsOfUseRoute
+  '/track-order': typeof TrackOrderRoute
+  '/wholesale-enquiry': typeof WholesaleEnquiryRoute
+  '/women-of-vedaarna': typeof WomenOfVedaarnaRoute
   '/collections/$slug': typeof CollectionsSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/contact' | '/collections/$slug' | '/products/$slug'
+    | '/'
+    | '/about'
+    | '/account'
+    | '/become-a-stockist'
+    | '/blog'
+    | '/celebrities'
+    | '/contact'
+    | '/delivery-information'
+    | '/faq'
+    | '/franchise-enquiry'
+    | '/privacy-policy'
+    | '/refer-earn'
+    | '/returns-exchanges'
+    | '/sitemap'
+    | '/terms-of-use'
+    | '/track-order'
+    | '/wholesale-enquiry'
+    | '/women-of-vedaarna'
+    | '/collections/$slug'
+    | '/products/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/collections/$slug' | '/products/$slug'
+  to:
+    | '/'
+    | '/about'
+    | '/account'
+    | '/become-a-stockist'
+    | '/blog'
+    | '/celebrities'
+    | '/contact'
+    | '/delivery-information'
+    | '/faq'
+    | '/franchise-enquiry'
+    | '/privacy-policy'
+    | '/refer-earn'
+    | '/returns-exchanges'
+    | '/sitemap'
+    | '/terms-of-use'
+    | '/track-order'
+    | '/wholesale-enquiry'
+    | '/women-of-vedaarna'
+    | '/collections/$slug'
+    | '/products/$slug'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/account'
+    | '/become-a-stockist'
+    | '/blog'
+    | '/celebrities'
     | '/contact'
+    | '/delivery-information'
+    | '/faq'
+    | '/franchise-enquiry'
+    | '/privacy-policy'
+    | '/refer-earn'
+    | '/returns-exchanges'
+    | '/sitemap'
+    | '/terms-of-use'
+    | '/track-order'
+    | '/wholesale-enquiry'
+    | '/women-of-vedaarna'
     | '/collections/$slug'
     | '/products/$slug'
   fileRoutesById: FileRoutesById
@@ -81,7 +270,22 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AccountRoute: typeof AccountRoute
+  BecomeAStockistRoute: typeof BecomeAStockistRoute
+  BlogRoute: typeof BlogRoute
+  CelebritiesRoute: typeof CelebritiesRoute
   ContactRoute: typeof ContactRoute
+  DeliveryInformationRoute: typeof DeliveryInformationRoute
+  FaqRoute: typeof FaqRoute
+  FranchiseEnquiryRoute: typeof FranchiseEnquiryRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  ReferEarnRoute: typeof ReferEarnRoute
+  ReturnsExchangesRoute: typeof ReturnsExchangesRoute
+  SitemapRoute: typeof SitemapRoute
+  TermsOfUseRoute: typeof TermsOfUseRoute
+  TrackOrderRoute: typeof TrackOrderRoute
+  WholesaleEnquiryRoute: typeof WholesaleEnquiryRoute
+  WomenOfVedaarnaRoute: typeof WomenOfVedaarnaRoute
   CollectionsSlugRoute: typeof CollectionsSlugRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
 }
@@ -102,11 +306,116 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/become-a-stockist': {
+      id: '/become-a-stockist'
+      path: '/become-a-stockist'
+      fullPath: '/become-a-stockist'
+      preLoaderRoute: typeof BecomeAStockistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/celebrities': {
+      id: '/celebrities'
+      path: '/celebrities'
+      fullPath: '/celebrities'
+      preLoaderRoute: typeof CelebritiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/delivery-information': {
+      id: '/delivery-information'
+      path: '/delivery-information'
+      fullPath: '/delivery-information'
+      preLoaderRoute: typeof DeliveryInformationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/franchise-enquiry': {
+      id: '/franchise-enquiry'
+      path: '/franchise-enquiry'
+      fullPath: '/franchise-enquiry'
+      preLoaderRoute: typeof FranchiseEnquiryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refer-earn': {
+      id: '/refer-earn'
+      path: '/refer-earn'
+      fullPath: '/refer-earn'
+      preLoaderRoute: typeof ReferEarnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/returns-exchanges': {
+      id: '/returns-exchanges'
+      path: '/returns-exchanges'
+      fullPath: '/returns-exchanges'
+      preLoaderRoute: typeof ReturnsExchangesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap': {
+      id: '/sitemap'
+      path: '/sitemap'
+      fullPath: '/sitemap'
+      preLoaderRoute: typeof SitemapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-of-use': {
+      id: '/terms-of-use'
+      path: '/terms-of-use'
+      fullPath: '/terms-of-use'
+      preLoaderRoute: typeof TermsOfUseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track-order': {
+      id: '/track-order'
+      path: '/track-order'
+      fullPath: '/track-order'
+      preLoaderRoute: typeof TrackOrderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wholesale-enquiry': {
+      id: '/wholesale-enquiry'
+      path: '/wholesale-enquiry'
+      fullPath: '/wholesale-enquiry'
+      preLoaderRoute: typeof WholesaleEnquiryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/women-of-vedaarna': {
+      id: '/women-of-vedaarna'
+      path: '/women-of-vedaarna'
+      fullPath: '/women-of-vedaarna'
+      preLoaderRoute: typeof WomenOfVedaarnaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/collections/$slug': {
@@ -129,7 +438,22 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AccountRoute: AccountRoute,
+  BecomeAStockistRoute: BecomeAStockistRoute,
+  BlogRoute: BlogRoute,
+  CelebritiesRoute: CelebritiesRoute,
   ContactRoute: ContactRoute,
+  DeliveryInformationRoute: DeliveryInformationRoute,
+  FaqRoute: FaqRoute,
+  FranchiseEnquiryRoute: FranchiseEnquiryRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  ReferEarnRoute: ReferEarnRoute,
+  ReturnsExchangesRoute: ReturnsExchangesRoute,
+  SitemapRoute: SitemapRoute,
+  TermsOfUseRoute: TermsOfUseRoute,
+  TrackOrderRoute: TrackOrderRoute,
+  WholesaleEnquiryRoute: WholesaleEnquiryRoute,
+  WomenOfVedaarnaRoute: WomenOfVedaarnaRoute,
   CollectionsSlugRoute: CollectionsSlugRoute,
   ProductsSlugRoute: ProductsSlugRoute,
 }

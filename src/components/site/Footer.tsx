@@ -9,6 +9,28 @@ const shopLinks = [
   { label: "Menswear", to: "menswear" },
 ];
 
+const informationLinks = [
+  { label: "About Us", to: "/about" },
+  { label: "My Account", to: "/account" },
+  { label: "Track Order", to: "/track-order" },
+  { label: "Privacy Policy", to: "/privacy-policy" },
+  { label: "Delivery Information", to: "/delivery-information" },
+  { label: "Refund, Exchanges and Returns", to: "/returns-exchanges" },
+  { label: "Terms of use", to: "/terms-of-use" },
+  { label: "Faq", to: "/faq" },
+  { label: "Franchise Enquiry", to: "/franchise-enquiry" },
+  { label: "Wholesale Enquiry", to: "/wholesale-enquiry" },
+] as const;
+
+const discoverLinks = [
+  { label: "Blog", to: "/blog" },
+  { label: "Celebrities in VedAarna", to: "/celebrities" },
+  { label: "Women Of VedAarna", to: "/women-of-vedaarna" },
+  { label: "Sitemap", to: "/sitemap" },
+  { label: "Refer & Earn", to: "/refer-earn" },
+  { label: "Become a Stockist", to: "/become-a-stockist" },
+] as const;
+
 const customerService = [
   "Shipping Policy",
   "Return & Exchange",
@@ -38,10 +60,9 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="mt-24 border-t border-border bg-sand/60">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4 md:gap-10 md:px-10">
-
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 sm:grid-cols-2 md:grid-cols-3 md:gap-10 lg:grid-cols-6 md:px-10">
         {/* Column 1 — Brand */}
-        <div>
+        <div className="sm:col-span-2 lg:col-span-1">
           <h3 className="text-xl tracking-[0.25em] uppercase">VedAarna Studio</h3>
           <p className="mt-2 text-xs tracking-[0.14em] text-muted-foreground italic">
             A Legacy in every stitch...!!!
@@ -70,21 +91,54 @@ export function Footer() {
           </ul>
         </div>
 
-        {/* Column 3 — Customer Service */}
+        {/* Column 3 — Information */}
+        <div>
+          <h4 className="text-xs tracking-[0.18em] uppercase">Information</h4>
+          <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+            {informationLinks.map((l) => (
+              <li key={l.to}>
+                <Link to={l.to} className="link-underline">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Column 4 — Discover */}
+        <div>
+          <h4 className="text-xs tracking-[0.18em] uppercase">Discover</h4>
+          <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+            {discoverLinks.map((l) => (
+              <li key={l.to}>
+                <Link to={l.to} className="link-underline">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Column 5 — Customer Service */}
         <div>
           <h4 className="text-xs tracking-[0.18em] uppercase">Customer Service</h4>
           <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
             {customerService.map((h) => (
               <li key={h}>
-                <Link to="/contact" className="link-underline">{h}</Link>
+                <Link to="/contact" className="link-underline">
+                  {h}
+                </Link>
               </li>
             ))}
-            <li><Link to="/about" className="link-underline">Our Story</Link></li>
-            <li><Link to="/contact" className="link-underline">Contact Us</Link></li>
+            <li>
+              <Link to="/contact" className="link-underline">
+                Contact Us
+              </Link>
+            </li>
           </ul>
         </div>
 
-        {/* Column 4 — Stay Connected */}
+        {/* Column 6 — Stay Connected */}
         <div>
           <h4 className="text-xs tracking-[0.18em] uppercase">Stay Connected</h4>
           <p className="mt-5 text-sm text-muted-foreground">
@@ -123,7 +177,6 @@ export function Footer() {
             </div>
           </div>
         </div>
-
       </div>
 
       <div className="border-t border-border/70 px-6 py-6 text-center text-[11px] tracking-[0.1em] text-muted-foreground uppercase">
