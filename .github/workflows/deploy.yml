@@ -29,6 +29,11 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Fix wrangler.json asset path for Linux
+        run: |
+          sed -i 's|"directory": "..\\\\public"|"directory": "../public"|g' .output/server/wrangler.json
+          cat .output/server/wrangler.json
+
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v4
         with:
