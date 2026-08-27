@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { PageShell } from "@/components/site/PageShell";
+import { Header } from "@/components/site/Header";
+import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/account")({
   head: () => ({
@@ -24,82 +24,88 @@ export const Route = createFileRoute("/account")({
 });
 
 function Account() {
-  const [mode, setMode] = useState<"login" | "register">("login");
-  const [done, setDone] = useState(false);
-
   return (
-    <PageShell
-      eyebrow="Information"
-      title="My Account"
-      intro="Track orders, store your measurements and keep a wishlist of pieces you love."
-    >
-      <div className="max-w-md">
-        <div className="flex gap-8 border-b border-border">
-          {(["login", "register"] as const).map((m) => (
-            <button
-              key={m}
-              onClick={() => setMode(m)}
-              className={`-mb-px border-b-2 pb-3 text-[11px] tracking-[0.2em] uppercase ${
-                mode === m ? "border-foreground" : "border-transparent text-muted-foreground"
-              }`}
-            >
-              {m === "login" ? "Sign in" : "Create account"}
-            </button>
-          ))}
-        </div>
+    <div className="min-h-screen">
+      <Header />
+      <main className="mx-auto max-w-6xl px-6 py-20 md:px-10">
+        <div className="grid md:grid-cols-2 md:divide-x md:divide-border gap-16 md:gap-0">
 
-        <form
-          className="mt-8 space-y-5"
-          onSubmit={(e) => {
-            e.preventDefault();
-            setDone(true);
-          }}
-        >
-          {mode === "register" && (
-            <div>
-              <label htmlFor="fullname" className="text-[11px] tracking-[0.16em] uppercase">
-                Full name
-              </label>
-              <input
-                id="fullname"
-                required
-                className="mt-2 w-full border border-border bg-background px-3 py-2.5 text-sm outline-none focus:border-foreground"
-              />
-            </div>
-          )}
-          <div>
-            <label htmlFor="acc-email" className="text-[11px] tracking-[0.16em] uppercase">
-              Email
-            </label>
-            <input
-              id="acc-email"
-              type="email"
-              required
-              className="mt-2 w-full border border-border bg-background px-3 py-2.5 text-sm outline-none focus:border-foreground"
-            />
-          </div>
-          <div>
-            <label htmlFor="acc-pass" className="text-[11px] tracking-[0.16em] uppercase">
-              Password
-            </label>
-            <input
-              id="acc-pass"
-              type="password"
-              required
-              className="mt-2 w-full border border-border bg-background px-3 py-2.5 text-sm outline-none focus:border-foreground"
-            />
-          </div>
-          <button className="w-full bg-foreground py-3.5 text-[11px] tracking-[0.24em] text-background uppercase">
-            {mode === "login" ? "Sign in" : "Create account"}
-          </button>
-          {done && (
-            <p className="text-sm text-muted-foreground">
-              Accounts are opening shortly — meanwhile our care team can help with any order at
-              care@vedaarnastudio.com.
+          {/* ── Left: Login ───────────────────────────────────────────────── */}
+          <div className="md:pr-16">
+            <h2 className="text-xl tracking-[0.12em] uppercase">Login</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              If you've created an account with us, please enter.
             </p>
-          )}
-        </form>
-      </div>
-    </PageShell>
+
+            <form className="mt-8 space-y-5" onSubmit={(e) => e.preventDefault()}>
+              <div>
+                <label
+                  htmlFor="acc-email"
+                  className="text-[11px] tracking-[0.18em] uppercase"
+                >
+                  Email
+                </label>
+                <input
+                  id="acc-email"
+                  type="email"
+                  placeholder="Email"
+                  required
+                  className="mt-2 w-full border border-border bg-background px-4 py-3 text-sm outline-none focus:border-foreground placeholder:text-muted-foreground/50"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="acc-pass"
+                  className="text-[11px] tracking-[0.18em] uppercase"
+                >
+                  Password
+                </label>
+                <input
+                  id="acc-pass"
+                  type="password"
+                  placeholder="Password"
+                  required
+                  className="mt-2 w-full border border-border bg-background px-4 py-3 text-sm outline-none focus:border-foreground placeholder:text-muted-foreground/50"
+                />
+              </div>
+
+              <a
+                href="#"
+                className="block text-sm text-primary hover:underline"
+              >
+                Forgot your password?
+              </a>
+
+              <button
+                type="submit"
+                className="w-full bg-foreground py-3.5 text-[11px] tracking-[0.24em] text-background uppercase hover:opacity-90 transition-opacity"
+              >
+                Sign In
+              </button>
+            </form>
+          </div>
+
+          {/* ── Right: Create Account ─────────────────────────────────────── */}
+          <div className="md:pl-16 flex flex-col justify-center">
+            <h2 className="text-xl tracking-[0.12em] uppercase">Create an Account</h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              Registering with VedAarna Studio lets you access your order status and history
+              anytime. We'll have your account set up in no time — we only ask for the
+              information needed to make your purchase process faster and easier.
+            </p>
+
+            <button
+              type="button"
+              className="mt-8 w-full bg-foreground py-3.5 text-[11px] tracking-[0.24em] text-background uppercase hover:opacity-90 transition-opacity"
+            >
+              Create Account
+            </button>
+          </div>
+
+        </div>
+      </main>
+      <Footer />
+    </div>
   );
 }
