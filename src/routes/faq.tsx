@@ -34,23 +34,30 @@ function Faq() {
       title="Frequently Asked Questions"
       intro="Everything you need to know about shopping with VedAarna Studio. Still unsure? Write to care@vedaarnastudio.com."
     >
-      <div className="divide-y divide-border border-t border-b border-border">
+      <div className="space-y-4">
         {faqs.map((f, i) => (
-          <div key={f.q}>
+          <div key={f.q} className="overflow-hidden rounded border border-border">
+            {/* Header */}
             <button
               onClick={() => setOpen(open === i ? null : i)}
-              className="flex w-full items-center justify-between gap-6 py-5 text-left text-sm"
+              className="flex w-full items-center justify-between gap-6 px-5 py-4 text-left"
               aria-expanded={open === i}
+              style={{ backgroundColor: "#c9727a" }}
             >
-              <span>{f.q}</span>
+              <span className="text-[11px] tracking-[0.18em] uppercase font-medium text-white">
+                {f.q}
+              </span>
               {open === i ? (
-                <Minus className="size-4 shrink-0" />
+                <Minus className="size-4 shrink-0 text-white" />
               ) : (
-                <Plus className="size-4 shrink-0" />
+                <Plus className="size-4 shrink-0 text-white" />
               )}
             </button>
+            {/* Answer */}
             {open === i && (
-              <p className="pb-6 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+              <div className="border-t border-border bg-background px-5 py-5">
+                <p className="text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+              </div>
             )}
           </div>
         ))}
