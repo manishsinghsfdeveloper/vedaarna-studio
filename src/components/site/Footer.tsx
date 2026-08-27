@@ -59,7 +59,15 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-border bg-sand/60">
+    <footer className="mt-24">
+      {/* Trademark strip */}
+      <div
+        className="px-6 py-4 text-center text-xs tracking-[0.12em] text-foreground/70"
+        style={{ backgroundColor: "#f0dfd4" }}
+      >
+        VedAarna Studio is a registered trademark and property of VEDAARNA STUDIO.
+      </div>
+      <div className="border-t border-border bg-sand/60">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 sm:grid-cols-2 md:grid-cols-3 md:gap-10 lg:grid-cols-6 md:px-10">
         {/* Column 1 — Brand */}
         <div className="sm:col-span-2 lg:col-span-1">
@@ -179,6 +187,7 @@ export function Footer() {
         </div>
       </div>
 
+      </div>
       <div className="border-t border-border/70 px-6 py-6 text-center text-[11px] tracking-[0.1em] text-muted-foreground uppercase">
         © {new Date().getFullYear()} VedAarna Studio — All rights reserved
       </div>

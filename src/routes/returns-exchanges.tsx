@@ -26,6 +26,7 @@ export const Route = createFileRoute("/returns-exchanges")({
       eyebrow="Information"
       title="Refund, Exchanges & Returns"
       intro="Our exchange, cancellation and refund policies — everything you need to know before and after your order."
+      heroStrip
     >
       <Prose sections={returns} />
     </PageShell>

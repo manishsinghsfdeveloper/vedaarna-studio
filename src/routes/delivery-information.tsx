@@ -26,6 +26,7 @@ export const Route = createFileRoute("/delivery-information")({
       eyebrow="Information"
       title="Shipping & Delivery Policy"
       intro="Everything you need to know about shipping, dispatch timelines, and getting your order safely."
+      heroStrip
     >
       <Prose sections={delivery} />
     </PageShell>

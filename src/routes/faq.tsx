@@ -33,6 +33,7 @@ function Faq() {
       eyebrow="Information"
       title="Frequently Asked Questions"
       intro="Everything you need to know about shopping with VedAarna Studio. Still unsure? Write to care@vedaarnastudio.com."
+      heroStrip
     >
       <div className="space-y-4">
         {faqs.map((f, i) => (

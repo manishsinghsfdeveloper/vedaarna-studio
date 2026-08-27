@@ -26,6 +26,7 @@ export const Route = createFileRoute("/privacy-policy")({
       eyebrow="Information"
       title="Privacy Policy"
       intro="Your trust matters to us. This page explains what we collect, how we use it, and how we keep it safe."
+      heroStrip
     >
       <Prose sections={privacy} />
     </PageShell>

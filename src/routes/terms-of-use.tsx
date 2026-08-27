@@ -26,6 +26,7 @@ export const Route = createFileRoute("/terms-of-use")({
       eyebrow="Information"
       title="Terms of Use"
       intro="Please read these terms carefully. By using vedaarnastudio.com, you agree to be bound by this User Agreement."
+      heroStrip
     >
       <Prose sections={terms} />
     </PageShell>
