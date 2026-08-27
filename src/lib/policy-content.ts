@@ -361,27 +361,31 @@ export const terms: ProseSection[] = [
 
 export const faqs: { q: string; a: string }[] = [
   {
-    q: "What sizes do you offer?",
-    a: "Most styles run from XXS to 5XL. Exact size availability is shown on each product page.",
+    q: "What is VedAarna Studio?",
+    a: "VedAarna Studio is a fashion e-commerce brand founded by Simran Singh and Manish Singh — \"A Legacy in Every Stitch.\" The brand has grown into a name recognized for its craftsmanship in the market today. VedAarna Studio offers a wide range of products including suit sets, co-ord sets for women, maxi dresses, men's wear, and fusion outfits. The brand has mastered the traditional arts of hand-block printing, hand-painting, and natural dyes, and is well known for its use of pure fabrics like cotton and chiffon. Explore the stunning collection of ethnic wear at VedAarna Studio.",
   },
   {
-    q: "Do you offer custom stitching?",
-    a: "Yes, select styles can be made to your measurements. Look for the 'Custom Fit' option on the product page or write to us at care@vedaarnastudio.com.",
-  },
-  {
-    q: "How do I care for handblock prints and kantha?",
-    a: "Hand wash separately in cold water for the first few washes, dry in shade, and iron on the reverse to keep colours and stitching intact for longer.",
+    q: "Do you offer international shipping?",
+    a: "Yes, VedAarna Studio ships worldwide, subject to availability at checkout. Orders above USD 150 qualify for free international shipping; orders below USD 150 will have shipping charges calculated based on destination, package weight, and applicable rates, shown at checkout. International orders are prepaid only. We're unable to ship to countries with trade restrictions.",
   },
   {
     q: "How long does delivery take?",
-    a: "In-stock orders within India arrive in 3–6 business days. International orders take 7–14 business days depending on destination.",
-  },
-  {
-    q: "Do you ship internationally?",
-    a: "Yes, we ship worldwide. Shipping charges and duties are calculated at checkout based on destination.",
+    a: "Each VedAarna Studio outfit is handcrafted with love, so please allow 15–20 working days for dispatch (domestic & international). During peak seasons, festivals, or unforeseen situations, dispatch may take an extra 10–15 days — we'll keep you informed via email or phone if this happens. Domestic prepaid orders ship free; COD charges, if any, are shown at checkout. For more, visit our Shipping & Delivery page.",
   },
   {
     q: "What is your return policy?",
-    a: "Unused pieces with original tags can be returned within 7 days of delivery, and every order is eligible for one free size exchange in India.",
+    a: "You can request an exchange within 3 days of delivery, provided the item is unused, unwashed, unworn, with original packaging and tags intact, and accompanied by an unboxing video. Exchanges are available for domestic orders only; a processing fee of ₹300 per product applies. We offer reverse pickup once payment is confirmed. If your requested size is unavailable, a credit note will be issued, valid for 30 days. Sale items are non-returnable, and we do not offer returns or refunds once an order is delivered. Visit our Refund, Exchanges and Returns page for full details.",
+  },
+  {
+    q: "How do I choose the right size?",
+    a: "To find your perfect fit, refer to the VedAarna Studio Size Guide available on each product page. It helps you choose the right size based on your measurements. We recommend checking the size chart before placing your order to reduce the need for exchanges. For help, contact our team anytime.",
+  },
+  {
+    q: "How do I track my order?",
+    a: "Once your order clears quality checks and is packed, it's handed over to our delivery partner, and you'll receive a tracking link via SMS and email so you can monitor your VedAarna Studio order anytime. For shipping updates or help, reach out to our team via email or phone.",
+  },
+  {
+    q: "Are your clothes pre-washed/shrink-resistant?",
+    a: "VedAarna Studio garments are not pre-washed and may shrink slightly on their first wash, especially cotton fabrics — this is natural and helps the fabric settle into its final fit. We use high-quality, breathable materials that soften beautifully over time. For best results, follow our wash care instructions.",
   },
 ];

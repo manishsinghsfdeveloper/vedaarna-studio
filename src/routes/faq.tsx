@@ -11,12 +11,12 @@ export const Route = createFileRoute("/faq")({
       {
         name: "description",
         content:
-          "Answers on sizing, custom stitching, fabric care, delivery timelines and international shipping at VedAarna Studio.",
+          "Frequently asked questions about VedAarna Studio — shipping, delivery timelines, returns, size guide, order tracking and fabric care.",
       },
       { property: "og:title", content: "Frequently Asked Questions — VedAarna Studio" },
       {
         property: "og:description",
-        content: "Sizing, custom stitching, fabric care and shipping — answered.",
+        content: "Shipping, delivery, returns, size guide and order tracking — all your questions answered.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -32,7 +32,7 @@ function Faq() {
     <PageShell
       eyebrow="Information"
       title="Frequently Asked Questions"
-      intro="Everything customers ask us most often. Still unsure? Write to care@vedaarnastudio.com."
+      intro="Everything you need to know about shopping with VedAarna Studio. Still unsure? Write to care@vedaarnastudio.com."
     >
       <div className="divide-y divide-border border-t border-b border-border">
         {faqs.map((f, i) => (
