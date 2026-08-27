@@ -9,19 +9,24 @@ export const Route = createFileRoute("/terms-of-use")({
       {
         name: "description",
         content:
-          "The terms that apply when you browse or order from VedAarna Studio, including pricing, handcraft variation and liability.",
+          "Terms of Use for vedaarnastudio.com — user agreement, disclaimers, payment facility, limitation of liability, governing law, arbitration, e-coupons and grievance officer details.",
       },
       { property: "og:title", content: "Terms of Use — VedAarna Studio" },
       {
         property: "og:description",
-        content: "Conditions of using the VedAarna Studio website and placing orders.",
+        content:
+          "User agreement, disclaimers, limitation of liability, governing law and grievance officer details for VedAarna Studio.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: () => (
-    <PageShell eyebrow="Information" title="Terms of Use">
+    <PageShell
+      eyebrow="Information"
+      title="Terms of Use"
+      intro="Please read these terms carefully. By using vedaarnastudio.com, you agree to be bound by this User Agreement."
+    >
       <Prose sections={terms} />
     </PageShell>
   ),

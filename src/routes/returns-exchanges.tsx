@@ -5,16 +5,17 @@ import { returns } from "@/lib/policy-content";
 export const Route = createFileRoute("/returns-exchanges")({
   head: () => ({
     meta: [
-      { title: "Refunds, Exchanges & Returns — VedAarna Studio" },
+      { title: "Refund, Exchanges & Returns — VedAarna Studio" },
       {
         name: "description",
         content:
-          "7-day returns, free first size exchange within India and how refunds are processed at VedAarna Studio.",
+          "Exchange policy, cancellation policy and refund policy at VedAarna Studio. Domestic exchanges within 3 days of delivery, cancellations within 24 hours.",
       },
-      { property: "og:title", content: "Refunds, Exchanges & Returns" },
+      { property: "og:title", content: "Refund, Exchanges & Returns — VedAarna Studio" },
       {
         property: "og:description",
-        content: "Easy 7-day returns and one free size exchange on every order in India.",
+        content:
+          "Exchange within 3 days of delivery. Orders cancelled within 24 hours. No returns or refunds on delivered orders.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -23,8 +24,8 @@ export const Route = createFileRoute("/returns-exchanges")({
   component: () => (
     <PageShell
       eyebrow="Information"
-      title="Refunds, Exchanges & Returns"
-      intro="If a piece is not right for you, here is exactly how to send it back."
+      title="Refund, Exchanges & Returns"
+      intro="Our exchange, cancellation and refund policies — everything you need to know before and after your order."
     >
       <Prose sections={returns} />
     </PageShell>
