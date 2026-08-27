@@ -2,27 +2,79 @@ export type ProseSection = { heading: string; body: string[] };
 
 export const delivery: ProseSection[] = [
   {
+    heading: "Welcome to VedAarna Studio",
+    body: [
+      "At VedAarna Studio, we believe your shopping experience should be as beautiful and effortless as the outfits you choose. Every policy and guideline we've created is designed with your comfort and convenience in mind. Please take a moment to review them so you can shop with confidence.",
+    ],
+  },
+  {
+    heading: "Domestic Shipping",
+    body: [
+      "Enjoy FREE SHIPPING across India on all prepaid orders.",
+      "For COD orders, applicable shipping charges, if any, will be displayed at checkout.",
+    ],
+  },
+  {
+    heading: "International Shipping",
+    body: [
+      "We proudly ship worldwide, subject to availability at checkout.",
+      "Orders above USD 150: Enjoy FREE INTERNATIONAL SHIPPING.",
+      "Orders below USD 150: International shipping charges will apply and will be calculated based on the destination, package weight, and applicable shipping rates. The exact shipping charge will be displayed at checkout before you complete your purchase.",
+      "International orders are prepaid only.",
+    ],
+  },
+  {
+    heading: "Customs & Duties",
+    body: [
+      "International orders may attract import duties, taxes, or customs charges based on your country's policies. These charges are the customer's responsibility and must be paid at delivery.",
+      "We recommend checking local regulations before ordering, as we cannot process returns or cancellations for international shipments.",
+      "If customs fees remain unpaid or the order is refused, VedAarna Studio will not be liable for refunds, returns, or exchanges.",
+    ],
+  },
+  {
     heading: "Dispatch Timelines",
     body: [
-      "In-stock pieces leave our Jaipur studio within 2–3 business days of your order being confirmed. Made-to-order and custom-stitched pieces are dispatched within 7–10 business days.",
+      "Each VedAarna Studio outfit is handcrafted with love, so please allow 15–20 working days for dispatch (domestic & international).",
+      "During peak seasons, festivals, or unforeseen situations (like heavy rains, political unrest, or public curfews), dispatch may take an extra 10–15 days. If this happens, we'll keep you informed via email or phone.",
     ],
   },
   {
-    heading: "Shipping Charges",
+    heading: "Receiving Your Order",
     body: [
-      "Shipping is free on all prepaid orders above ₹2,999 within India. Orders below this value carry a flat shipping fee of ₹99, shown at checkout.",
-    ],
-  },
-  {
-    heading: "International Delivery",
-    body: [
-      "We ship worldwide. International orders typically arrive within 7–14 business days depending on destination and customs clearance. Duties and taxes, if applicable, are payable by the recipient.",
+      "To ensure your order reaches you safely:",
+      "Record an unboxing video and click time-stamped photos within 24 hours of delivery.",
+      "If your parcel appears damaged or tampered with, do not accept it. Instead, capture photos & a video and email them to us with your order number so we can resolve it quickly.",
     ],
   },
   {
     heading: "Order Tracking",
     body: [
-      "A tracking link is emailed to you the moment your order ships. You can also check status anytime on our Track Order page using your order number and registered email or phone.",
+      "Once your order clears quality checks and is packed, it will be handed over to our delivery partners. You'll receive a tracking link via SMS and email so you can monitor your order anytime.",
+      "We proudly ship worldwide. Eligibility can be checked during checkout.",
+    ],
+  },
+  {
+    heading: "Order Cancellation",
+    body: [
+      "Orders (Prepaid or COD) can be cancelled within 24 hours of placement. For COD orders, the COD advance payment is non-refundable in case of cancellation.",
+      "To cancel, email us at orders@vedaarnastudio.com or call +91-9910201612 (Mon–Fri, 10 AM–6:00 PM).",
+    ],
+  },
+  {
+    heading: "Payment Options",
+    body: [
+      "We've made payments easy and secure: Credit/Debit Cards (all major cards accepted), Net Banking, UPI & eWallets, and Razorpay.",
+      "For domestic orders: COD is available for orders up to ₹10,000.",
+      "For international orders: Prepaid only. We accept Mastercard, Visa, & Amex.",
+      "Credit Notes: Issued via email, valid for 30 days, and can be applied once on our official website.",
+      "Please Note: All items on Sale are non-returnable.",
+    ],
+  },
+  {
+    heading: "A Special Note from Us",
+    body: [
+      "Every VedAarna Studio outfit is made with care and attention to detail — a legacy in every stitch. Because of the handcrafted nature of our work, occasional delays may happen. If there's an extended delay beyond the timeline mentioned on our website, we'll offer a full refund — no questions asked.",
+      "Thank you for choosing VedAarna Studio. We're honoured to dress you in designs that make you feel as beautiful as you already are.",
     ],
   },
 ];

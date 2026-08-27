@@ -5,16 +5,17 @@ import { delivery } from "@/lib/policy-content";
 export const Route = createFileRoute("/delivery-information")({
   head: () => ({
     meta: [
-      { title: "Delivery Information — VedAarna Studio" },
+      { title: "Shipping & Delivery Policy — VedAarna Studio" },
       {
         name: "description",
         content:
-          "Dispatch timelines, shipping charges, international delivery and order tracking at VedAarna Studio.",
+          "Free shipping on all prepaid orders in India. International shipping, dispatch timelines, order tracking, cancellation and payment options at VedAarna Studio.",
       },
-      { property: "og:title", content: "Delivery Information — VedAarna Studio" },
+      { property: "og:title", content: "Shipping & Delivery Policy — VedAarna Studio" },
       {
         property: "og:description",
-        content: "Free shipping above ₹2,999 in India, worldwide delivery in 7–14 days.",
+        content:
+          "Free shipping on all prepaid orders in India. International orders ship worldwide — free above USD 150.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -23,8 +24,8 @@ export const Route = createFileRoute("/delivery-information")({
   component: () => (
     <PageShell
       eyebrow="Information"
-      title="Delivery Information"
-      intro="When your parcel leaves the studio, and when it should reach you."
+      title="Shipping & Delivery Policy"
+      intro="Everything you need to know about shipping, dispatch timelines, and getting your order safely."
     >
       <Prose sections={delivery} />
     </PageShell>
