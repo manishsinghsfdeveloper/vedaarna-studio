@@ -81,33 +81,65 @@ export const delivery: ProseSection[] = [
 
 export const privacy: ProseSection[] = [
   {
-    heading: "Information We Collect",
+    heading: "Overview",
     body: [
-      "We collect the details you share with us when you create an account, place an order, or write to our care team — such as your name, email, phone number, shipping address and payment reference.",
+      "This Privacy Policy governs the manner in which VEDAARNA STUDIO collects, uses, maintains and discloses information collected from users (each, a \"User\") of the vedaarnastudio.com website (\"Site\"). This privacy policy applies to the Site and all products and services offered by VedAarna Studio.",
     ],
   },
   {
-    heading: "How We Use Your Information",
+    heading: "Personal Identification Information",
     body: [
-      "Your information is used to process orders, provide customer support, personalise your shopping experience and, with your consent, send updates on new collections and offers.",
+      "We may collect personal identification information from Users in a variety of ways, including, but not limited to, when Users visit our site, register on the site, subscribe to the newsletter and in connection with other activities, services, features or resources we make available on our Site. Users may be asked for, as appropriate, name, email address, mailing address, phone number, credit/debit card information.",
+      "Users may, however, visit our Site anonymously.",
+      "We will collect personal identification information from Users only if they voluntarily submit such information to us. Users can always refuse to supply personal identification information, except that it may prevent them from engaging in certain Site-related activities.",
     ],
   },
   {
-    heading: "Cookies",
+    heading: "Non-Personal Identification Information",
     body: [
-      "We use cookies to keep your cart and preferences saved across visits and to understand how our site is used, so we can keep improving it.",
+      "We may collect non-personal identification information about Users whenever they interact with our Site. Non-personal identification information may include the browser name, the type of computer and technical information, such as the operating system and the Internet service providers utilized and other similar information.",
     ],
   },
   {
-    heading: "Sharing Your Information",
+    heading: "How We Use Collected Information",
     body: [
-      "We share information only with trusted logistics and payment partners strictly to fulfil your order. We do not sell your personal data to third parties.",
+      "To improve customer service: Your information helps us to more effectively respond to your customer service requests and support needs.",
+      "To personalise user experience: We may use information in the aggregate to understand how our Users as a group use the services and resources provided on our Site.",
+      "To improve our Site: We continually strive to improve our website offerings based on the information and feedback we receive from you.",
+      "To process transactions: We may use the information Users provide about themselves when placing an order only to provide service to that order. We do not share this information with outside parties except to the extent necessary to provide the service.",
+      "To send periodic emails: The email address Users provide for order processing will only be used to send them information and updates pertaining to their order. It may also be used to respond to their inquiries and/or other requests or questions. If a User decides to opt-in to our mailing list, they will receive emails that may include company updates, related product or service information, etc. If at any time the User would like to unsubscribe from receiving future emails, we include an unsubscribe link at the bottom of each email.",
     ],
   },
   {
-    heading: "Your Rights",
+    heading: "How We Protect Your Information",
     body: [
-      "You may request access to, correction of, or deletion of your personal data at any time by writing to care@vedaarnastudio.com.",
+      "We adopt appropriate data collection, storage and processing practices and security measures to protect against unauthorized access, alteration, disclosure or destruction of your personal information, username, password, transaction information and data stored on our Site.",
+      "Sensitive and private data exchange between the Site and its Users happens over a secured communication channel and is encrypted and protected with digital signatures.",
+    ],
+  },
+  {
+    heading: "Sharing Your Personal Information",
+    body: [
+      "We do not sell, trade, or rent Users' personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information regarding visitors and users with our business partners, trusted affiliates and advertisers for the purposes outlined above.",
+      "We may use third-party service providers to help us operate our business and the Site or administer activities on our behalf, such as sending out newsletters. We may share your information with these third parties for those limited purposes, provided that you have given us your permission.",
+    ],
+  },
+  {
+    heading: "Changes to This Privacy Policy",
+    body: [
+      "VedAarna Studio has the discretion to update this privacy policy at any time. When we do, we will revise the updated date at the bottom of this page. We encourage Users to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect. You acknowledge and agree that it is your responsibility to review this privacy policy periodically and become aware of modifications.",
+    ],
+  },
+  {
+    heading: "Your Acceptance of These Terms",
+    body: [
+      "By using this Site, you signify your acceptance of this policy, and if you do not agree to this policy, please do not use our Site. Your continued use of the Site following the posting of changes to this policy will be deemed your acceptance of those changes.",
+    ],
+  },
+  {
+    heading: "Contacting Us",
+    body: [
+      "If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at: wa.me/+919910201612",
     ],
   },
 ];

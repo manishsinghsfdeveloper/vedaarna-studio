@@ -9,12 +9,13 @@ export const Route = createFileRoute("/privacy-policy")({
       {
         name: "description",
         content:
-          "How VedAarna Studio collects, uses and protects your personal information when you shop with us.",
+          "How VEDAARNA STUDIO collects, uses, maintains and discloses information. Read our full privacy policy for vedaarnastudio.com.",
       },
       { property: "og:title", content: "Privacy Policy — VedAarna Studio" },
       {
         property: "og:description",
-        content: "Our approach to your data, cookies, sharing and your privacy rights.",
+        content:
+          "We do not sell your personal data. Learn how VedAarna Studio collects, protects and uses your information.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -24,7 +25,7 @@ export const Route = createFileRoute("/privacy-policy")({
     <PageShell
       eyebrow="Information"
       title="Privacy Policy"
-      intro="Your trust matters to us. This page explains what we collect and how we use it."
+      intro="Your trust matters to us. This page explains what we collect, how we use it, and how we keep it safe."
     >
       <Prose sections={privacy} />
     </PageShell>
