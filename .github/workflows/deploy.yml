@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages
+name: Deploy to Cloudflare Workers
 
 on:
   push:
@@ -41,3 +41,21 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: .output/server
           command: deploy --config wrangler.json --name vedaarna-studio
+
+      - name: Add custom domain (vedaarnastudio.com)
+        if: github.ref == 'refs/heads/main'
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: workers domain add vedaarnastudio.com --name vedaarna-studio
+        continue-on-error: true
+
+      - name: Add custom domain (www.vedaarnastudio.com)
+        if: github.ref == 'refs/heads/main'
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: workers domain add www.vedaarnastudio.com --name vedaarna-studio
+        continue-on-error: true
