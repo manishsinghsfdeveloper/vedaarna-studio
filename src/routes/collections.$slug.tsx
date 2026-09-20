@@ -2,9 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { ProductCard } from "@/components/site/ProductCard";
-import { collectionTitle, productsIn } from "@/lib/shop-data";
+import { collectionTitle, getProducts } from "@/lib/shop-data";
 
 export const Route = createFileRoute("/collections/$slug")({
+  loader: async ({ params }) => {
+    const items = await getProducts(params.slug);
+    return { items };
+  },
   head: ({ params }) => {
     const title = collectionTitle(params.slug);
     return {
@@ -28,7 +32,7 @@ export const Route = createFileRoute("/collections/$slug")({
 function CollectionPage() {
   const { slug } = Route.useParams();
   const title = collectionTitle(slug);
-  const items = productsIn(slug);
+  const { items } = Route.useLoaderData();
 
   return (
     <div className="min-h-screen">

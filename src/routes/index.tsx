@@ -3,9 +3,16 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { HeroCarousel } from "@/components/site/HeroCarousel";
 import { ProductCard } from "@/components/site/ProductCard";
-import { collections, productsIn } from "@/lib/shop-data";
+import { getCollections, getProducts } from "@/lib/shop-data";
 
 export const Route = createFileRoute("/")({
+  loader: async () => {
+    const [featured, cols] = await Promise.all([
+      getProducts("new-arrivals"),
+      getCollections(),
+    ]);
+    return { featured, collections: cols };
+  },
   head: () => ({
     meta: [
       { title: "VedAarna Studio — Traditional & Contemporary Indian Fashion" },
@@ -33,7 +40,7 @@ const promises = [
 ];
 
 function Home() {
-  const featured = productsIn("new-arrivals");
+  const { featured, collections } = Route.useLoaderData();
 
   return (
     <div className="min-h-screen">

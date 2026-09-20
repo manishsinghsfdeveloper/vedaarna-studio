@@ -1,3 +1,11 @@
+import {
+  fetchMedusaCollections,
+  fetchMedusaProducts,
+  type MedusaCollection,
+  type MedusaProduct,
+} from "@/lib/medusa";
+
+
 import p1 from "@/assets/p1.jpg";
 import p2 from "@/assets/p2.jpg";
 import p3 from "@/assets/p3.jpg";
@@ -157,3 +165,71 @@ export const productsIn = (slug: string) =>
 export const formatINR = (n: number) =>
   "MRP " +
   n.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+// ---------------------------------------------------------------------------
+// Medusa → local type mappers
+// ---------------------------------------------------------------------------
+
+function mapProduct(p: MedusaProduct): Product {
+  const images = p.images ?? [];
+  // Medusa products can have multiple images; use thumbnail as primary, second image as hover
+  const image = p.thumbnail ?? images[0]?.url ?? p1;
+  const hover = images[1]?.url ?? images[0]?.url ?? p.thumbnail ?? p2;
+  const sizes = p.variants.length ? p.variants.map((v) => v.title) : ["Free Size"];
+  // Medusa stores price on variants — Store API v2 price_set; fall back to 0 until price modules wired
+  const price = (p.metadata?.["price_inr"] as number | undefined) ?? 0;
+  const compareAt = p.metadata?.["compare_at_inr"] as number | undefined;
+  const badge = p.metadata?.["badge"] as string | undefined;
+  const fabric = (p.metadata?.["fabric"] as string | undefined) ?? "";
+  const collectionHandles = p.collection?.handle ? [p.collection.handle] : [];
+  const tagHandles = (p.tags ?? []).map((t) => t.value);
+
+  return {
+    slug: p.handle,
+    name: p.title,
+    price,
+    ...(compareAt !== undefined && { compareAt }),
+    image,
+    hover,
+    sizes,
+    ...(badge !== undefined && { badge }),
+    collections: [...collectionHandles, ...tagHandles],
+    fabric,
+  };
+}
+
+function mapCollection(c: MedusaCollection): Collection {
+  return {
+    slug: c.handle,
+    title: c.title,
+    tagline: (c.metadata?.["tagline"] as string | undefined) ?? c.title,
+    // Collections don't have images in Medusa core — fall back to a static asset
+    image: (c.metadata?.["image_url"] as string | undefined) ?? p1,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Async data fetchers (fall back to static data if Medusa is unreachable)
+// ---------------------------------------------------------------------------
+
+/** Fetch all products from Medusa. Falls back to static product list. */
+export async function getProducts(collectionHandle?: string): Promise<Product[]> {
+  const raw = await fetchMedusaProducts(collectionHandle);
+  if (raw.length === 0) {
+    return collectionHandle ? productsIn(collectionHandle) : products;
+  }
+  return raw.map(mapProduct);
+}
+
+/** Fetch all collections from Medusa. Falls back to static collection list. */
+export async function getCollections(): Promise<Collection[]> {
+  const raw = await fetchMedusaCollections();
+  if (raw.length === 0) return collections;
+  return raw.map(mapCollection);
+}
+
+/** Fetch a single product by handle/slug. Falls back to static lookup. */
+export async function getProduct(slug: string): Promise<Product | null> {
+  const all = await getProducts();
+  return all.find((p) => p.slug === slug) ?? null;
+}

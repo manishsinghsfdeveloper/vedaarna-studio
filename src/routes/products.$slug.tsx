@@ -3,13 +3,16 @@ import { useState } from "react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { ProductCard } from "@/components/site/ProductCard";
-import { formatINR, products } from "@/lib/shop-data";
+import { formatINR, getProduct, getProducts } from "@/lib/shop-data";
 
 export const Route = createFileRoute("/products/$slug")({
-  loader: ({ params }) => {
-    const product = products.find((p) => p.slug === params.slug);
+  loader: async ({ params }) => {
+    const [product, related] = await Promise.all([
+      getProduct(params.slug),
+      getProducts(),
+    ]);
     if (!product) throw notFound();
-    return { product };
+    return { product, related: related.filter((p) => p.slug !== params.slug).slice(0, 4) };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -34,9 +37,8 @@ export const Route = createFileRoute("/products/$slug")({
 });
 
 function ProductPage() {
-  const { product } = Route.useLoaderData();
+  const { product, related } = Route.useLoaderData();
   const [size, setSize] = useState(product.sizes[0]);
-  const related = products.filter((p) => p.slug !== product.slug).slice(0, 4);
 
   return (
     <div className="min-h-screen">
