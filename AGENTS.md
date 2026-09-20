@@ -64,7 +64,7 @@ Tests use Jest + `@swc/jest` (no Vitest). The `jest` config is inside `vedaarna-
 - **Seeding**: `npm run seed` uses `medusa exec` targeting `src/scripts/seed.ts`. The seed file must be created under that path.
 - **Railway deploy**: runs `npx medusa db:migrate && npx medusa start` on every deploy (see [`railway.json`](vedaarna-medusa/railway.json)).
 - **Module keys in `medusa-config.js` must be snake_case** matching Medusa's internal `Modules` constants (e.g. `api_key`, `event_bus`, `sales_channel`, `stock_location`). camelCase keys (`apiKey`, `eventBus`, etc.) register the module under the wrong name in the DI container — core workflow steps that call `container.resolve(Modules.API_KEY)` find nothing and return `undefined`. Single-word keys (`auth`, `cart`, `user`, etc.) are unaffected since there is no underscore.
-- **`locking` module must be registered** (`{ resolve: "@medusajs/locking-postgres" }`). Without it, `MigrationScriptsMigrator.run` calls `.acquire()` on `undefined` at every boot. The package is a transitive dep of `@medusajs/medusa` so no separate install needed.
+- **`locking` module must be registered** using `@medusajs/locking` (the module) with `@medusajs/locking-postgres` as a provider inside `options.providers`. `@medusajs/locking-postgres` alone is just a provider package with no service export — pointing `resolve` at it directly gives `No service found in module Locking`. Both packages must be in `dependencies`.
 - **`sharedContainer` resolution error** means a module is loaded without being registered in `medusa-config.js` — add it to the `modules` object.
 
 ## Code Style
