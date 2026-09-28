@@ -10,10 +10,10 @@ Keep the `main` branch in a working state at all times. Avoid force-pushing or r
 
 Two independent sub-projects in one repo:
 
-| Directory | Stack | Notes |
-|---|---|---|
-| `/` (root) | TanStack Start (React 19, Vite 8, Tailwind v4) | SSR storefront, Cloudflare Worker — built locally with `npm run build`, deployed with `npx wrangler deploy` |
-| `vedaarna-medusa/` | Medusa v2 backend | Separate git repo, deployed to Railway via `railway.json` |
+| Directory          | Stack                                          | Notes                                                                                                       |
+| ------------------ | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `/` (root)         | TanStack Start (React 19, Vite 8, Tailwind v4) | SSR storefront, Cloudflare Worker — built locally with `npm run build`, deployed with `npx wrangler deploy` |
+| `vedaarna-medusa/` | Medusa v2 backend                              | Separate git repo, deployed to Railway via `railway.json`                                                   |
 
 The two projects share **no** package.json or node_modules — commands must be run from the correct directory.
 

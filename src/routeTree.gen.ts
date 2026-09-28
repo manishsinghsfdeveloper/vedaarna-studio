@@ -15,6 +15,7 @@ import { Route as AccountRouteImport } from './routes/account'
 import { Route as BecomeAStockistRouteImport } from './routes/become-a-stockist'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as CelebritiesRouteImport } from './routes/celebrities'
+import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DeliveryInformationRouteImport } from './routes/delivery-information'
 import { Route as FaqRouteImport } from './routes/faq'
@@ -58,6 +59,11 @@ const BlogRoute = BlogRouteImport.update({
 const CelebritiesRoute = CelebritiesRouteImport.update({
   id: '/celebrities',
   path: '/celebrities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -138,6 +144,7 @@ export interface FileRoutesByFullPath {
   '/become-a-stockist': typeof BecomeAStockistRoute
   '/blog': typeof BlogRoute
   '/celebrities': typeof CelebritiesRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/delivery-information': typeof DeliveryInformationRoute
   '/faq': typeof FaqRoute
@@ -160,6 +167,7 @@ export interface FileRoutesByTo {
   '/become-a-stockist': typeof BecomeAStockistRoute
   '/blog': typeof BlogRoute
   '/celebrities': typeof CelebritiesRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/delivery-information': typeof DeliveryInformationRoute
   '/faq': typeof FaqRoute
@@ -183,6 +191,7 @@ export interface FileRoutesById {
   '/become-a-stockist': typeof BecomeAStockistRoute
   '/blog': typeof BlogRoute
   '/celebrities': typeof CelebritiesRoute
+  '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
   '/delivery-information': typeof DeliveryInformationRoute
   '/faq': typeof FaqRoute
@@ -207,6 +216,7 @@ export interface FileRouteTypes {
     | '/become-a-stockist'
     | '/blog'
     | '/celebrities'
+    | '/checkout'
     | '/contact'
     | '/delivery-information'
     | '/faq'
@@ -229,6 +239,7 @@ export interface FileRouteTypes {
     | '/become-a-stockist'
     | '/blog'
     | '/celebrities'
+    | '/checkout'
     | '/contact'
     | '/delivery-information'
     | '/faq'
@@ -251,6 +262,7 @@ export interface FileRouteTypes {
     | '/become-a-stockist'
     | '/blog'
     | '/celebrities'
+    | '/checkout'
     | '/contact'
     | '/delivery-information'
     | '/faq'
@@ -274,6 +286,7 @@ export interface RootRouteChildren {
   BecomeAStockistRoute: typeof BecomeAStockistRoute
   BlogRoute: typeof BlogRoute
   CelebritiesRoute: typeof CelebritiesRoute
+  CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
   DeliveryInformationRoute: typeof DeliveryInformationRoute
   FaqRoute: typeof FaqRoute
@@ -332,6 +345,13 @@ declare module '@tanstack/react-router' {
       path: '/celebrities'
       fullPath: '/celebrities'
       preLoaderRoute: typeof CelebritiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -442,6 +462,7 @@ const rootRouteChildren: RootRouteChildren = {
   BecomeAStockistRoute: BecomeAStockistRoute,
   BlogRoute: BlogRoute,
   CelebritiesRoute: CelebritiesRoute,
+  CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
   DeliveryInformationRoute: DeliveryInformationRoute,
   FaqRoute: FaqRoute,

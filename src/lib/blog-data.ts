@@ -168,6 +168,6 @@ export const posts: BlogPost[] = [
   },
 ];
 
-export const blogTags: string[] = Array.from(
-  new Set(posts.flatMap((p) => p.tags)),
-).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+export const blogTags: string[] = Array.from(new Set(posts.flatMap((p) => p.tags))).sort((a, b) =>
+  a.toLowerCase().localeCompare(b.toLowerCase()),
+);

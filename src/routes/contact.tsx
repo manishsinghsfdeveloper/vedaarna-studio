@@ -52,16 +52,21 @@ function Contact() {
             <div>
               <h2 className="text-xs tracking-[0.18em] uppercase">Call or WhatsApp</h2>
               <p className="mt-2 text-muted-foreground">
-                <a href="tel:+919910201612" className="link-underline">+91 99102 01612</a>
+                <a href="tel:+919910201612" className="link-underline">
+                  +91 99102 01612
+                </a>
                 {", "}
-                <a href="tel:+919818081910" className="link-underline">+91 98180 81910</a>
+                <a href="tel:+919818081910" className="link-underline">
+                  +91 98180 81910
+                </a>
               </p>
               <p className="text-muted-foreground">Mon–Sat, 10am – 6pm IST</p>
             </div>
             <div>
               <h2 className="text-xs tracking-[0.18em] uppercase">Studio</h2>
               <p className="mt-2 text-muted-foreground">
-                525, Lower Ground Floor, Sector 27,<br />
+                525, Lower Ground Floor, Sector 27,
+                <br />
                 Gurugram, Haryana 122009, India
               </p>
             </div>

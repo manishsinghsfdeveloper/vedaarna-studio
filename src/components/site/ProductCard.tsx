@@ -7,7 +7,7 @@ export function ProductCard({ product }: { product: Product }) {
       <Link
         to="/products/$slug"
         params={{ slug: product.slug }}
-        className="relative block overflow-hidden bg-muted"
+        className="relative block aspect-[3/4] overflow-hidden rounded-lg bg-[#f5f3f0]"
       >
         <img
           src={product.image}
@@ -15,7 +15,7 @@ export function ProductCard({ product }: { product: Product }) {
           loading="lazy"
           width={800}
           height={1024}
-          className="aspect-4/5 w-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+          className="absolute inset-0 h-full w-full object-contain transition-opacity duration-500 group-hover:opacity-0"
         />
         <img
           src={product.hover}
@@ -24,10 +24,10 @@ export function ProductCard({ product }: { product: Product }) {
           loading="lazy"
           width={800}
           height={1024}
-          className="absolute inset-0 aspect-4/5 w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          className="absolute inset-0 h-full w-full object-contain opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         />
         {product.badge && (
-          <span className="absolute top-3 left-3 bg-background/90 px-2.5 py-1 text-[10px] tracking-[0.16em] uppercase">
+          <span className="absolute top-3 left-3 bg-background/90 px-2.5 py-1 text-[10px] tracking-[0.16em] uppercase rounded-sm">
             {product.badge}
           </span>
         )}
@@ -41,9 +41,7 @@ export function ProductCard({ product }: { product: Product }) {
       </Link>
 
       <div className="mt-3.5 text-center">
-        <p className="text-[10px] tracking-[0.18em] text-muted-foreground uppercase">
-          VedAarna
-        </p>
+        <p className="text-[10px] tracking-[0.18em] text-muted-foreground uppercase">VedAarna</p>
         <h3 className="mt-1.5 px-2 text-[13px] leading-snug">
           <Link to="/products/$slug" params={{ slug: product.slug }} className="link-underline">
             {product.name}

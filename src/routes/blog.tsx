@@ -15,8 +15,7 @@ export const Route = createFileRoute("/blog")({
       { property: "og:title", content: "The VedAarna Journal" },
       {
         property: "og:description",
-        content:
-          "Styling guides, craft stories and fabric care notes from the VedAarna studio.",
+        content: "Styling guides, craft stories and fabric care notes from the VedAarna studio.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -49,11 +48,7 @@ function BlogPage() {
             Filters
           </p>
           <div className="mt-5 flex flex-wrap gap-2.5 md:mt-0">
-            <FilterPill
-              label="All"
-              selected={active === null}
-              onClick={() => setActive(null)}
-            />
+            <FilterPill label="All" selected={active === null} onClick={() => setActive(null)} />
             {blogTags.map((tag) => (
               <FilterPill
                 key={tag}
@@ -80,12 +75,8 @@ function BlogPage() {
             <p className="text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
               {featured.date} · {featured.read}
             </p>
-            <h2 className="mt-3 text-2xl leading-snug md:text-3xl">
-              {featured.title}
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              {featured.excerpt}
-            </p>
+            <h2 className="mt-3 text-2xl leading-snug md:text-3xl">{featured.title}</h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{featured.excerpt}</p>
             <TagRow tags={featured.tags} onPick={setActive} />
             <Link
               to="/contact"
@@ -116,9 +107,7 @@ function BlogPage() {
                 {post.date} · {post.read}
               </p>
               <h3 className="mt-2 text-lg leading-snug">{post.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {post.excerpt}
-              </p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
               <TagRow tags={post.tags} onPick={setActive} />
               <Link
                 to="/contact"
@@ -165,13 +154,7 @@ function FilterPill({
   );
 }
 
-function TagRow({
-  tags,
-  onPick,
-}: {
-  tags: string[];
-  onPick: (tag: string) => void;
-}) {
+function TagRow({ tags, onPick }: { tags: string[]; onPick: (tag: string) => void }) {
   return (
     <div className="mt-4 flex flex-wrap gap-2">
       {tags.slice(0, 3).map((tag) => (

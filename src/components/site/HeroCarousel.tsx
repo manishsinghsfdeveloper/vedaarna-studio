@@ -58,8 +58,9 @@ export function HeroCarousel() {
     const dy = touch.clientY - touchStartY.current;
     // Only treat as horizontal swipe if movement is more horizontal than vertical
     if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-      if (dx < 0) next(); // swipe left → next
-      else prev();        // swipe right → prev
+      if (dx < 0)
+        next(); // swipe left → next
+      else prev(); // swipe right → prev
     }
     touchStartX.current = null;
     touchStartY.current = null;

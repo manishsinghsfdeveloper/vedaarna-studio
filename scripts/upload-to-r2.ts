@@ -12,7 +12,9 @@ const BUCKET_NAME = process.env.R2_BUCKET_NAME || "vedaarna-products";
 const CDN_DOMAIN = process.env.R2_CDN_DOMAIN || "https://cdn.vedaarnastudio.com";
 
 if (!ACCOUNT_ID || !ACCESS_KEY_ID || !SECRET_ACCESS_KEY) {
-  console.error("Missing R2 credentials. Set R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY in .env");
+  console.error(
+    "Missing R2 credentials. Set R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY in .env",
+  );
   process.exit(1);
 }
 
@@ -31,7 +33,12 @@ async function uploadFile(fileName: string) {
   const filePath = path.join(PHOTOS_DIR, fileName);
   const fileBuffer = fs.readFileSync(filePath);
   const ext = path.extname(fileName).toLowerCase();
-  const contentType = ext === ".png" ? "image/png" : ext === ".jpg" || ext === ".jpeg" ? "image/jpeg" : "application/octet-stream";
+  const contentType =
+    ext === ".png"
+      ? "image/png"
+      : ext === ".jpg" || ext === ".jpeg"
+        ? "image/jpeg"
+        : "application/octet-stream";
 
   const command = new PutObjectCommand({
     Bucket: BUCKET_NAME,
@@ -45,8 +52,9 @@ async function uploadFile(fileName: string) {
 }
 
 // Design numbers to upload — update this range as new batches arrive.
-// 0001–0011 are already live in R2; 0028 is on hold (no photos yet).
-const DESIGN_RANGE = { from: 12, to: 27 };
+// Designs 0001–0027 are already live in PostgreSQL & CDN.
+// Designs 0028–0034 are in 'Draft' status and ready for CDN upload.
+const DESIGN_RANGE = { from: 28, to: 34 };
 
 function isInRange(fileName: string): boolean {
   // Extract the 4-digit design number from filenames like VS-SUT-2PC-0012-PYL-26-01-FR.png
@@ -60,7 +68,9 @@ async function main() {
   console.log(`Starting R2 upload from: ${PHOTOS_DIR}`);
   console.log(`Target Bucket: ${BUCKET_NAME}`);
   console.log(`CDN URL: ${CDN_DOMAIN}`);
-  console.log(`Design range: ${String(DESIGN_RANGE.from).padStart(4, "0")}–${String(DESIGN_RANGE.to).padStart(4, "0")}\n`);
+  console.log(
+    `Design range: ${String(DESIGN_RANGE.from).padStart(4, "0")}–${String(DESIGN_RANGE.to).padStart(4, "0")}\n`,
+  );
 
   if (!fs.existsSync(PHOTOS_DIR)) {
     console.error(`Photos directory not found at: ${PHOTOS_DIR}`);
@@ -70,7 +80,9 @@ async function main() {
   const allFiles = fs.readdirSync(PHOTOS_DIR).filter((f) => /\.(png|jpe?g|webp)$/i.test(f));
   const files = allFiles.filter(isInRange);
 
-  console.log(`Found ${allFiles.length} total images; uploading ${files.length} in design range.\n`);
+  console.log(
+    `Found ${allFiles.length} total images; uploading ${files.length} in design range.\n`,
+  );
 
   let count = 0;
   for (const file of files) {
@@ -82,7 +94,9 @@ async function main() {
     }
   }
 
-  console.log(`\n🎉 Upload completed! ${count}/${files.length} images uploaded to ${CDN_DOMAIN}/products/`);
+  console.log(
+    `\n🎉 Upload completed! ${count}/${files.length} images uploaded to ${CDN_DOMAIN}/products/`,
+  );
 }
 
 main().catch(console.error);

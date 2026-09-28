@@ -3,6 +3,8 @@ import { Menu, Minus, Plus, Search, ShoppingBag, User, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { navLinks } from "@/lib/shop-data";
+import { CartDrawer } from "@/components/site/CartDrawer";
+import { useCart } from "@/lib/cart";
 
 // Mobile nav: top-level sections with optional sub-items (expand/collapse)
 const mobileNav = [
@@ -60,15 +62,21 @@ function MobileDrawer({
   expanded,
   onToggle,
   onClose,
+  onOpenCart,
+  cartQty,
 }: {
   expanded: string | null;
   onToggle: (label: string) => void;
   onClose: () => void;
+  onOpenCart: () => void;
+  cartQty: number;
 }) {
   // Lock body scroll while drawer is open
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, []);
 
   return createPortal(
@@ -78,11 +86,7 @@ function MobileDrawer({
     >
       {/* Drawer header — mirrors the main header bar */}
       <div className="grid grid-cols-[1fr_auto_1fr] items-center border-b border-border px-4 py-2">
-        <button
-          className="justify-self-start"
-          aria-label="Close menu"
-          onClick={onClose}
-        >
+        <button className="justify-self-start" aria-label="Close menu" onClick={onClose}>
           <X className="size-5" />
         </button>
         <Link
@@ -93,11 +97,17 @@ function MobileDrawer({
         >
           <img src="/logo.png" alt="VedAarna Studio" className="h-16 w-auto" draggable={false} />
         </Link>
-        <button aria-label="Cart" className="relative justify-self-end">
+        <button
+          aria-label={`Shopping bag, ${cartQty} item${cartQty !== 1 ? "s" : ""}`}
+          className="relative justify-self-end"
+          onClick={onOpenCart}
+        >
           <ShoppingBag className="size-5" />
-          <span className="absolute -top-2 -right-2 grid size-4 place-items-center rounded-full bg-primary text-[9px] text-primary-foreground">
-            0
-          </span>
+          {cartQty > 0 && (
+            <span className="absolute -top-2 -right-2 grid size-4 place-items-center rounded-full bg-terracotta text-[9px] font-bold text-white">
+              {cartQty > 9 ? "9+" : cartQty}
+            </span>
+          )}
         </button>
       </div>
 
@@ -168,16 +178,17 @@ function MobileDrawer({
         })}
       </ul>
     </div>,
-    document.body
+    document.body,
   );
 }
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const { totalQty } = useCart();
 
-  const toggleSection = (label: string) =>
-    setExpanded((v) => (v === label ? null : label));
+  const toggleSection = (label: string) => setExpanded((v) => (v === label ? null : label));
 
   const closeAll = () => {
     setOpen(false);
@@ -199,7 +210,11 @@ export function Header() {
           </button>
           <span className="hidden md:block" />
 
-          <Link to="/" className="flex items-center justify-self-center" aria-label="VedAarna Studio">
+          <Link
+            to="/"
+            className="flex items-center justify-self-center"
+            aria-label="VedAarna Studio"
+          >
             <img
               src="/logo.png"
               alt="VedAarna Studio"
@@ -212,14 +227,20 @@ export function Header() {
             <button aria-label="Search" className="hidden md:block">
               <Search className="size-5" />
             </button>
-            <Link to="/contact" aria-label="Account" className="hidden md:block">
+            <Link to="/account" aria-label="My Account" className="hidden md:block">
               <User className="size-5" />
             </Link>
-            <button aria-label="Cart" className="relative">
+            <button
+              aria-label={`Shopping bag, ${totalQty} item${totalQty !== 1 ? "s" : ""}`}
+              className="relative"
+              onClick={() => setCartOpen(true)}
+            >
               <ShoppingBag className="size-5" />
-              <span className="absolute -top-2 -right-2 grid size-4 place-items-center rounded-full bg-primary text-[9px] text-primary-foreground">
-                0
-              </span>
+              {totalQty > 0 && (
+                <span className="absolute -top-2 -right-2 grid size-4 place-items-center rounded-full bg-terracotta text-[9px] font-bold text-white">
+                  {totalQty > 9 ? "9+" : totalQty}
+                </span>
+              )}
             </button>
           </div>
         </div>
@@ -249,8 +270,16 @@ export function Header() {
           expanded={expanded}
           onToggle={toggleSection}
           onClose={closeAll}
+          onOpenCart={() => {
+            closeAll();
+            setCartOpen(true);
+          }}
+          cartQty={totalQty}
         />
       )}
+
+      {/* Cart drawer — always mounted so open/close animation works */}
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );
 }

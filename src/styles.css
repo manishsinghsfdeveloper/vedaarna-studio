@@ -89,6 +89,15 @@
   animation: marquee-scroll 28s linear infinite;
 }
 
+@utility marquee-cards-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 35s linear infinite;
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
 @keyframes marquee-scroll {
   from {
     transform: translateX(0);

@@ -16,7 +16,8 @@ export const Route = createFileRoute("/faq")({
       { property: "og:title", content: "Frequently Asked Questions — VedAarna Studio" },
       {
         property: "og:description",
-        content: "Shipping, delivery, returns, size guide and order tracking — all your questions answered.",
+        content:
+          "Shipping, delivery, returns, size guide and order tracking — all your questions answered.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

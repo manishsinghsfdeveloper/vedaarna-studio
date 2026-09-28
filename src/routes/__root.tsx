@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportError } from "../lib/error-reporting";
+import { CartProvider } from "../lib/cart";
 
 function NotFoundComponent() {
   return (
@@ -80,15 +81,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "VedAarna Studio — Handcrafted Indian Fashion" },
       {
         name: "description",
-        content:
-          "VedAarna Studio — traditional & contemporary Indian fashion for every occasion.",
+        content: "VedAarna Studio — traditional & contemporary Indian fashion for every occasion.",
       },
       { name: "author", content: "VedAarna Studio" },
       { property: "og:title", content: "VedAarna Studio — Handcrafted Indian Fashion" },
       {
         property: "og:description",
-        content:
-          "Kurta sets, dresses, sarees, co-ords and menswear crafted by Indian artisans.",
+        content: "Kurta sets, dresses, sarees, co-ords and menswear crafted by Indian artisans.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -133,8 +132,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <CartProvider>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </CartProvider>
     </QueryClientProvider>
   );
 }

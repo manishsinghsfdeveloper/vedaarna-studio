@@ -24,16 +24,11 @@ export function PageShell({
       {/* Optional hero title strip */}
       {heroStrip ? (
         <>
-          <div
-            className="w-full py-8 text-center"
-            style={{ backgroundColor: "#f0dfd4" }}
-          >
+          <div className="w-full py-8 text-center" style={{ backgroundColor: "#f0dfd4" }}>
             <h1 className="text-xl md:text-2xl tracking-[0.2em] uppercase">{title}</h1>
           </div>
           <main className="mx-auto w-full max-w-7xl px-6 py-12 md:px-10">
-            {intro && (
-              <p className="mb-8 text-sm leading-relaxed text-muted-foreground">{intro}</p>
-            )}
+            {intro && <p className="mb-8 text-sm leading-relaxed text-muted-foreground">{intro}</p>}
             {children}
           </main>
         </>

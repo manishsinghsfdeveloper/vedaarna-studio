@@ -9,8 +9,7 @@ export const Route = createFileRoute("/track-order")({
       { title: "Track Your Order — VedAarna Studio" },
       {
         name: "description",
-        content:
-          "Enter your AWB number to track your VedAarna Studio order in real time.",
+        content: "Enter your AWB number to track your VedAarna Studio order in real time.",
       },
       { property: "og:title", content: "Track Your Order — VedAarna Studio" },
       {
@@ -34,7 +33,9 @@ function TrackOrder() {
 
       {/* breadcrumb */}
       <nav className="px-6 py-3 text-xs text-muted-foreground md:px-10">
-        <a href="/" className="text-primary hover:underline">Home</a>
+        <a href="/" className="text-primary hover:underline">
+          Home
+        </a>
         <span className="mx-2">/</span>
         <span>Track Order</span>
       </nav>
@@ -50,7 +51,10 @@ function TrackOrder() {
             <input
               type="text"
               value={awb}
-              onChange={(e) => { setAwb(e.target.value); setSubmitted(false); }}
+              onChange={(e) => {
+                setAwb(e.target.value);
+                setSubmitted(false);
+              }}
               placeholder="Enter Your AWB No."
               required
               className="w-full rounded border border-border bg-background px-4 py-3.5 text-sm outline-none focus:border-[#c9727a] placeholder:text-muted-foreground/60"
@@ -67,9 +71,9 @@ function TrackOrder() {
 
           {submitted && (
             <p className="mt-6 text-center text-sm text-muted-foreground">
-              We could not find live tracking for that AWB number yet. If your
-              order was placed in the last 48 hours it is still being packed —
-              your tracking link is emailed the moment it ships.
+              We could not find live tracking for that AWB number yet. If your order was placed in
+              the last 48 hours it is still being packed — your tracking link is emailed the moment
+              it ships.
             </p>
           )}
         </div>

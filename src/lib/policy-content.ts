@@ -83,7 +83,7 @@ export const privacy: ProseSection[] = [
   {
     heading: "Overview",
     body: [
-      "This Privacy Policy governs the manner in which VEDAARNA STUDIO collects, uses, maintains and discloses information collected from users (each, a \"User\") of the vedaarnastudio.com website (\"Site\"). This privacy policy applies to the Site and all products and services offered by VedAarna Studio.",
+      'This Privacy Policy governs the manner in which VEDAARNA STUDIO collects, uses, maintains and discloses information collected from users (each, a "User") of the vedaarnastudio.com website ("Site"). This privacy policy applies to the Site and all products and services offered by VedAarna Studio.',
     ],
   },
   {
@@ -195,16 +195,14 @@ export const returns: ProseSection[] = [
   },
   {
     heading: "Credit Note Validity",
-    body: [
-      "Credit notes issued for cancellations or exchanges are valid for 30 days.",
-    ],
+    body: ["Credit notes issued for cancellations or exchanges are valid for 30 days."],
   },
   // ── Refund Policy ──────────────────────────────────────────────────────────
   {
     heading: "Refund Policy",
     body: [
       "No Returns or Refunds: We do not offer returns or refunds once products are sold and delivered.",
-      "Sale Items: Products marked as \"Sale\" are non-returnable.",
+      'Sale Items: Products marked as "Sale" are non-returnable.',
     ],
   },
 ];
@@ -222,7 +220,7 @@ export const terms: ProseSection[] = [
     body: [
       "Your use of vedaarnastudio.com and all the web-pages, hyper-links, tools and services provided thereunder is governed by the following terms and conditions. This User Agreement shall come into effect upon each visit or usage of the Website, or upon your registration, or upon you providing any information on the Website.",
       "You are contracting with VEDAARNA STUDIO, with its registered office at 525, Lower Ground Floor, Sector - 27, Gurugram, Haryana - 122009, India.",
-      "\"Registered User\", \"Visitor\", and \"You\" shall mean any natural or legal person who has agreed to become a member of the Website or who has used the Website without becoming a Registered User, and in both cases has accepted this electronic version of the User Agreement.",
+      '"Registered User", "Visitor", and "You" shall mean any natural or legal person who has agreed to become a member of the Website or who has used the Website without becoming a Registered User, and in both cases has accepted this electronic version of the User Agreement.',
       "If you do not agree to be bound by the terms and conditions of this User Agreement, please do not use the Website.",
     ],
   },
@@ -235,7 +233,7 @@ export const terms: ProseSection[] = [
   {
     heading: "Important Disclaimers",
     body: [
-      "The Platform and its suppliers, affiliates and service providers provide the Website and services on an \"as is\" basis and without any warranty or condition, express, implied or statutory. You expressly agree that your use of the Website is at your own risk.",
+      'The Platform and its suppliers, affiliates and service providers provide the Website and services on an "as is" basis and without any warranty or condition, express, implied or statutory. You expressly agree that your use of the Website is at your own risk.',
       "The Platform, its associates and technology partners make no representations or warranties about the accuracy, reliability, completeness, and/or timeliness of any content, information, software, text, graphics, links or communications provided on or through the Website.",
       "The Website is only a venue where users may meet and interact with one another for their transactions. The Platform is not and cannot be a party to or control in any manner any transaction between two users of the Website.",
       "You understand, agree and acknowledge that the Platform uses third-party service providers to store and process your personal information. The Platform provides no guarantee that such third-party service providers will protect your personal information.",
@@ -251,14 +249,14 @@ export const terms: ProseSection[] = [
   {
     heading: "Membership Eligibility",
     body: [
-      "Use of the Website is available only to persons who can form legally binding contracts under the Indian Contract Act, 1872. Persons who are \"incompetent to contract\", including minors, undischarged insolvents, etc. are not eligible to use the Website.",
+      'Use of the Website is available only to persons who can form legally binding contracts under the Indian Contract Act, 1872. Persons who are "incompetent to contract", including minors, undischarged insolvents, etc. are not eligible to use the Website.',
       "If you are under the age of 18 years, you shall not register as a member of the Website and shall not sell, purchase or bid for any items. Such purchases may be made by your legal guardian or parents who have registered as users of the Website.",
     ],
   },
   {
     heading: "Membership Benefits",
     body: [
-      "As a registered member of VedAarna Studio, your address, email ID, and other delivery details become automatically saved in the \"My Account\" section. You can track all your orders by logging in with your User ID and Password, save items to \"My Wishlist\", and opt in to receive email updates about new collections and promotional schemes.",
+      'As a registered member of VedAarna Studio, your address, email ID, and other delivery details become automatically saved in the "My Account" section. You can track all your orders by logging in with your User ID and Password, save items to "My Wishlist", and opt in to receive email updates about new collections and promotional schemes.',
     ],
   },
   {
@@ -362,7 +360,7 @@ export const terms: ProseSection[] = [
 export const faqs: { q: string; a: string }[] = [
   {
     q: "What is VedAarna Studio?",
-    a: "VedAarna Studio is a fashion e-commerce brand founded by Simran Singh and Manish Singh — \"A Legacy in Every Stitch.\" The brand has grown into a name recognized for its craftsmanship in the market today. VedAarna Studio offers a wide range of products including suit sets, co-ord sets for women, maxi dresses, men's wear, and fusion outfits. The brand has mastered the traditional arts of hand-block printing, hand-painting, and natural dyes, and is well known for its use of pure fabrics like cotton and chiffon. Explore the stunning collection of ethnic wear at VedAarna Studio.",
+    a: 'VedAarna Studio is a fashion e-commerce brand founded by Simran Singh and Manish Singh — "A Legacy in Every Stitch." The brand has grown into a name recognized for its craftsmanship in the market today. VedAarna Studio offers a wide range of products including suit sets, co-ord sets for women, maxi dresses, men\'s wear, and fusion outfits. The brand has mastered the traditional arts of hand-block printing, hand-painting, and natural dyes, and is well known for its use of pure fabrics like cotton and chiffon. Explore the stunning collection of ethnic wear at VedAarna Studio.',
   },
   {
     q: "Do you offer international shipping?",
